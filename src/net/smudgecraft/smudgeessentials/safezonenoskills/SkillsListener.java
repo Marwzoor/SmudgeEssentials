@@ -1,4 +1,4 @@
-package net.smudgecraft.smudgessentials.safezonenoskills;
+package net.smudgecraft.smudgeessentials.safezonenoskills;
 
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;

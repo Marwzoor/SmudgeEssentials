@@ -18,9 +18,9 @@ import net.smudgecraft.smudgeessentials.loginz.Loginz;
 import net.smudgecraft.smudgeessentials.noregcombat.NoRegCombat;
 import net.smudgecraft.smudgeessentials.notes.NoteCommand;
 import net.smudgecraft.smudgeessentials.playerheads.PlayerHeads;
+import net.smudgecraft.smudgeessentials.safezonenoskills.SafezoneNoSkills;
 import net.smudgecraft.smudgeessentials.scoreboardbars.ScoreboardBars;
 import net.smudgecraft.smudgeessentials.signcolors.SignColors;
-import net.smudgecraft.smudgessentials.safezonenoskills.SafezoneNoSkills;
 
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -190,16 +190,6 @@ public class SmudgeEssentials extends JavaPlugin
 		{
 			cs.sendMessage("[SmudgeEssentials] NoRegCombat disabled.");
 		}
-		
-		/*if(config.getBoolean("NoNetherPortals")==true)
-		{
-			cs.sendMessage("[SmudgeEssentials] NoNetherPortals enabled.");
-			NoNetherPortals.init();
-		}
-		else
-		{
-			cs.sendMessage("[SmudgeEssentials] NoNetherPortals disabled.");
-		}*/
 		
 		if(config.getBoolean("Loginz")==true)
 		{

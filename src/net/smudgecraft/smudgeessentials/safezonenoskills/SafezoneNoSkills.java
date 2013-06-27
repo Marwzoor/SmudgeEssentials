@@ -1,4 +1,4 @@
-package net.smudgecraft.smudgessentials.safezonenoskills;
+package net.smudgecraft.smudgeessentials.safezonenoskills;
 
 
 import net.smudgecraft.smudgeessentials.SmudgeEssentials;
