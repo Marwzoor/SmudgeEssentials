@@ -255,9 +255,26 @@ public class BPermsSimplified implements CommandExecutor
 						sender.sendMessage(ChatColor.RED + "That is not a valid world name!");
 					}
 				}
+				else if(commandLabel.equalsIgnoreCase("groups") && args.length==0 || commandLabel.equalsIgnoreCase("groups") && args.length>0 && args[0].equalsIgnoreCase("help"))
+				{
+					helpMenu(sender);
+				}
 			}
 			}
 			return true;
+		}
+		
+		public void helpMenu(CommandSender sender)
+		{
+			sender.sendMessage(ChatColor.GOLD + "-----[ " + ChatColor.YELLOW + "SmudgeEssentials Help " + ChatColor.GOLD + "]-----");
+			sender.sendMessage(ChatColor.GREEN + "/groups add <player> <group> <world>");
+			sender.sendMessage(ChatColor.GREEN + "/groups remove <player> <group> <world>");
+			sender.sendMessage(ChatColor.GREEN + "/groups set <player> <group> <world>");
+			sender.sendMessage(ChatColor.GREEN + "/prefix set <player> <world> <prefix>");
+			sender.sendMessage(ChatColor.GREEN + "/prefix remove <player> <world>");
+			sender.sendMessage(ChatColor.GREEN + "/suffix set <player> <world> <suffix>");
+			sender.sendMessage(ChatColor.GREEN + "/prefix remove <player> <world>");
+			sender.sendMessage(ChatColor.GOLD + "-----------------------------------");
 		}
 		
 		public static String argsToString(String[] args)

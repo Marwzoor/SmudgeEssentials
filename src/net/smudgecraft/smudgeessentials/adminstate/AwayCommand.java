@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import net.smudgecraft.smudgeessentials.adminstate.ClearChatCommand;
 import net.smudgecraft.smudgeessentials.SmudgeEssentials;
 import net.smudgecraft.smudgeessentials.adminchat.ChatListenerAdmin;
 
