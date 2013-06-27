@@ -255,7 +255,15 @@ public class BPermsSimplified implements CommandExecutor
 						sender.sendMessage(ChatColor.RED + "That is not a valid world name!");
 					}
 				}
-				else if(commandLabel.equalsIgnoreCase("groups") && args.length==0 || commandLabel.equalsIgnoreCase("groups") && args.length>0 && args[0].equalsIgnoreCase("help"))
+				else if(commandLabel.equalsIgnoreCase("groups") && args.length==0 || (commandLabel.equalsIgnoreCase("groups") && args.length>0 && args[0].equalsIgnoreCase("help")))
+				{
+					helpMenu(sender);
+				}
+				else if(commandLabel.equalsIgnoreCase("prefix") && args.length==0 || (commandLabel.equalsIgnoreCase("prefix") && args.length>0 && args[0].equalsIgnoreCase("help")))
+				{
+					helpMenu(sender);
+				}
+				else if(commandLabel.equalsIgnoreCase("suffix") && args.length==0 || (commandLabel.equalsIgnoreCase("suffix") && args.length>0 && args[0].equalsIgnoreCase("help")))
 				{
 					helpMenu(sender);
 				}
