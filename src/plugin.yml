@@ -1,0 +1,107 @@
+name: SmudgeEssentials
+main: net.smudgecraft.smudgeessentials.SmudgeEssentials
+version: 2.1.2
+commands:
+    note:
+        description: used to create short notes into a text file.
+        usage: /note <note>
+    se:
+        description: general smudgeessentials commands.
+        usage: /se <args>
+    away:
+        description: lets admin take a break.
+        usage: /away (toggle away/present)
+    maintainance:
+        usage: /maintainance (toggle on/off)
+        description: set server into maintainance mode, only allowing players with certain permissions and players with op join. 
+    hplayers:
+        usage: /hplayers
+        description: see the highest amount of players SmudgeCraft has had of all times.   
+    nonether:
+        usage: /nonether <args>
+        description: nonether commands.
+    ac:
+        usage: /ac
+        description: adminchat.
+    announce:
+        usage: /announce <args>
+        description: herotips.
+    invis:
+        usage: /invis
+        description: become invisable.
+    groups:
+        usage: /groups <name> <group> <world>
+        description: simple bpermissions groups commands.
+    pvplog:
+        usage: /pvplog info <name>
+        description: shows how many times a player has pvplogged.
+    heroexpboost:
+        usage: /heroexpboost set <percentage>
+        description: increases the amount of experience gained.
+    prefix:
+        usage: /prefix <name> <world> <prefix>
+        description: changes the prefix of a player.
+    suffix:
+        usage: /suffix <name> <world> <suffix>
+        description: changes the suffix of a player.
+    itemz:
+        usage: /itemz <args>
+        description: set item names.
+    sbset:
+        usage: /sbset
+        description: sbset.
+    phead:
+        usage: /phead <playername>
+        description: get the head of a player.
+    clearchat:
+        usage: /clearchat
+        description: clears your chat.
+    cleanchests:
+        usage: /cleanchests <world>
+        description: cleans chests.
+permissions:
+    smudgeessentials.away:
+        description: Access To /away
+        default: op
+    adminchat.use:
+        description: Access To /ac
+        default: op
+    adminchat.see:
+        description: can see chat
+        default: op
+    signcolors.colors:
+        description: can use signcolors
+        default: op
+    loginz.maintainance:
+        description: can be online under maintainance.
+        default: op
+    loginz.ip:
+        description: can see peoples ip on login.
+        default: op
+    herotips.reload:
+        description: can use the reload command in herotips.
+        default: op
+    herotips.disable:
+        description: can use the disable command in herotips.
+        default: op
+    herotips.enable:
+        description: can use the enable command in herotips.
+        default: op
+    herotips.ignore:
+        description: can use the ignore command in herotips.
+        default: op
+    disabledactions.invisibility:
+        description: can turn invisible.
+        default: op
+    disabledactions.enderpearl:
+        description: can use enderpearls.
+        default: op
+    disabledactions.lavaplacement:
+        description: can place lava.
+        default: op
+    invis.use:
+        description: ability to become invisible.
+        default: op
+    invis.see:
+        description: ability to see invisible players.
+        default: op
