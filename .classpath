@@ -2,11 +2,11 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
-	<classpathentry kind="lib" path="C:/Users/Ägaren/Dropbox/ServerDev/Plugins Build API/bpermissions.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Ägaren/Dropbox/ServerDev/Plugins Build API/Vault-1.2.24-SNAPSHOT.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Ägaren/Dropbox/ServerDev/Plugins Build API/Factions 1.5.2.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Ägaren/Dropbox/ServerDev/Plugins Build API/Libkit-1.5.2-R1.0-SNAPSHOT.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Ägaren/Dropbox/ServerDev/Plugins Build API/Libigot-1.5.2-R1.1-SNAPSHOT.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Ägaren/Dropbox/ServerDev/Plugins Build API/Heroes 1798.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Martin/Desktop/Dropbox/ServerDev/Plugins Build API/bpermissions.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Martin/Desktop/Dropbox/ServerDev/Plugins Build API/Factions 1.5.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Martin/Desktop/Dropbox/ServerDev/Plugins Build API/Heroes 1798.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Martin/Desktop/Dropbox/ServerDev/Plugins Build API/Libigot-1.5.2-R1.1-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Martin/Desktop/Dropbox/ServerDev/Plugins Build API/Libkit-1.5.2-R1.1-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Martin/Desktop/Dropbox/ServerDev/Plugins Build API/Vault-1.2.25-SNAPSHOT.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

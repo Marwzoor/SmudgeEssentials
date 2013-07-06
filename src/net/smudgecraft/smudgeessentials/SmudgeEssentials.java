@@ -54,7 +54,11 @@ public class SmudgeEssentials extends JavaPlugin
 	@Override
 	public void onDisable()
 	{
-		
+		if(HeroExpBoost.isEnabled())
+		{
+			getServer().getScheduler().cancelTask(HeroExpBoost.savescheduleid);
+			HeroExpBoost.saveBoosts();
+		}
 	}
 	
 	public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args)

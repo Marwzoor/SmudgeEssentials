@@ -4,24 +4,29 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 
 import com.herocraftonline.heroes.api.events.ExperienceChangeEvent;
-import com.herocraftonline.heroes.characters.classes.HeroClass.ExperienceType;
 
 public class ExperienceListener implements Listener
 {
 	@EventHandler
 	public void onHeroGainExperienceEvent(ExperienceChangeEvent event)
 	{
-		Double exp = event.getExpChange();
-		
-		if(HeroExpBoost.expboost>0 && !event.getSource().equals(ExperienceType.ADMIN) && !event.getSource().equals(ExperienceType.DEATH))
+		if(!HeroExpBoost.expboosts.isEmpty())
 		{
-			Double tempexp = HeroExpBoost.expboost/100;
+		double exp = event.getExpChange();
+		
+		ExpBoost expboost = HeroExpBoost.getByHighestPriority();
+		
+		if(expboost!=null)
+		{
+		
+			double tempexp = expboost.getBoost()/100;
 			
 			tempexp = tempexp + 1;
 			
 			exp = exp*tempexp;
 			
 			event.setExpGain(exp);
+		}
 		}
 	}
 }

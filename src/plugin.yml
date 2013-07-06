@@ -59,6 +59,9 @@ commands:
     cleanchests:
         usage: /cleanchests <world>
         description: cleans chests.
+    expboost:
+        usage: /expboost
+        description: gives the current expboost.
 permissions:
     smudgeessentials.away:
         description: Access To /away

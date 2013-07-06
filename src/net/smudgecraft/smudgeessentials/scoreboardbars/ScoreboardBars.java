@@ -9,6 +9,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.scoreboard.DisplaySlot;
 import org.bukkit.scoreboard.Objective;
+import org.bukkit.scoreboard.Score;
 import org.bukkit.scoreboard.Scoreboard;
 import org.bukkit.scoreboard.ScoreboardManager;
 
@@ -33,21 +34,21 @@ public class ScoreboardBars
 		
 		double amount = health/maxhealth;
 		
-		amount = amount*10;
+		amount = amount*5;
 		
 		int am = (int) amount;
 		
 		String message = "";
 		
-		for(int i=1;i<11;++i)
+		for(int i=1;i<=6;++i)
 		{
 			if(i<am)
 			{
-				message += ChatColor.GREEN + "█";
+				message += ChatColor.GREEN + "|";
 			}
 			else
 			{
-				message += ChatColor.RED + "█";
+				message += ChatColor.RED + "|";
 			}
 		}
 		
@@ -63,21 +64,21 @@ public class ScoreboardBars
 		
 		double amount = mana/maxmana;
 		
-		amount = amount*10;
+		amount = amount*5;
 		
 		int am = (int) amount;
 		
 		String message = "";
 		
-		for(int i=1;i<11;++i)
+		for(int i=1;i<6;++i)
 		{
-			if(i<am)
+			if(i<=am)
 			{
-				message += ChatColor.BLUE + "█";
+				message += ChatColor.BLUE + "|";
 			}
 			else
 			{
-				message += ChatColor.GRAY + "█";
+				message += ChatColor.GRAY + "|";
 			}
 		}
 		
@@ -104,50 +105,55 @@ public class ScoreboardBars
 	
 	public static void setScoreboard(Player player)
 	{
+		Hero hero = SmudgeEssentials.heroes.getCharacterManager().getHero(player);
+		
 		ScoreboardManager manager = Bukkit.getScoreboardManager();
 		
 		Scoreboard sb = manager.getNewScoreboard();
 		
-		Objective hbar = sb.registerNewObjective("healthbar", "dummy");
+		Objective stats = sb.registerNewObjective("stats", "dummy");
 		
-		Objective mbar = sb.registerNewObjective("manabar", "dummy");
+		stats.setDisplaySlot(DisplaySlot.SIDEBAR);
 		
-		hbar.setDisplaySlot(DisplaySlot.SIDEBAR);
+		stats.setDisplayName(ChatColor.GOLD + player.getName() + "'s Stats" + ChatColor.BLUE);
+				
+		Score mbar = stats.getScore(Bukkit.getOfflinePlayer(ChatColor.BLUE + "Mana"));
+		mbar.setScore(hero.getMana());
 		
-		mbar.setDisplaySlot(DisplaySlot.SIDEBAR);
+		Score hbar = stats.getScore(Bukkit.getOfflinePlayer(ChatColor.GREEN + "Health"));
+		hbar.setScore(player.getHealth());
 		
-		hbar.setDisplayName(createHealthBar(player));
+		Score primaryclass = stats.getScore(Bukkit.getOfflinePlayer(ChatColor.AQUA + hero.getHeroClass().getName()));
+		primaryclass.setScore(hero.getLevel(hero.getHeroClass()));
 		
-		mbar.setDisplayName(createManaBar(player));
+		if(hero.getSecondClass()!=null)
+		{
+		Score profession = stats.getScore(Bukkit.getOfflinePlayer(ChatColor.AQUA + hero.getSecondClass().getName()));
+		profession.setScore(hero.getLevel(hero.getSecondClass()));
+		}
+		
+		stats.getScore(Bukkit.getOfflinePlayer(ChatColor.GOLD + "(Stats Beta)")).setScore(0);
 		
 		player.setScoreboard(sb);
-		
-		player.sendMessage(createHealthBar(player));
-		
-		player.sendMessage(createManaBar(player));
 		
 		sbplayers.put(player, sb);
 	}
 	
-	public static void updateScoreboard(Player player)
+	/*public static void updateScoreboard(Player player)
 	{
 		if(hasScoreboard(player))
 		{
 			Scoreboard sb = getScoreboard(player);
 
-			Objective hbar = sb.getObjective("healthbar");
+			Objective stats = sb.getObjective("stats");
 			
-			Objective mbar = sb.getObjective("manabar");
 			
-			hbar.setDisplayName(createHealthBar(player));
-			
-			mbar.setDisplayName(createManaBar(player));
 			
 			player.setScoreboard(sb);
 			
 			sbplayers.put(player, sb);
 		}
-	}
+	}*/
 	
 	public static void removeScoreboard(Player player)
 	{
