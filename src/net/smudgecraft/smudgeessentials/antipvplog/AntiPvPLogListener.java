@@ -50,7 +50,7 @@ public class AntiPvPLogListener implements Listener
 				
 				pi.clear();
 				
-				player.setHealth(0);
+				player.setHealth(0D);
 				
 				Bukkit.getServer().broadcastMessage(ChatColor.AQUA + player.getName() + ChatColor.RED + " tried to PvPLog!");
 				

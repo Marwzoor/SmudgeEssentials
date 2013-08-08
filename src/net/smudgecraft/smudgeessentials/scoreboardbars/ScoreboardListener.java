@@ -4,6 +4,7 @@ import net.smudgecraft.smudgeessentials.SmudgeEssentials;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.entity.Damageable;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
@@ -37,13 +38,13 @@ public class ScoreboardListener implements Listener
 		{
 			Player player = (Player) event.getEntity();
 
-			if(player.getHealth()+event.getAmount()>player.getMaxHealth())
+			if(((Damageable)player).getHealth()+event.getAmount()>((Damageable)player).getMaxHealth())
 			{
-				updateHealth(player, player.getMaxHealth());
+				updateHealth(player, ((Damageable)player).getMaxHealth());
 			}
 			else
 			{
-				updateHealth(player, player.getHealth() + event.getAmount());
+				updateHealth(player, ((Damageable)player).getHealth() + event.getAmount());
 			}
 		}
 	}
@@ -58,13 +59,13 @@ public class ScoreboardListener implements Listener
 		{	
 			Player player = (Player) event.getEntity();
 			
-			if(player.getHealth()-event.getDamage()<0)
+			if(((Damageable)player).getHealth()-event.getDamage()<0)
 			{
 				updateHealth(player, 0);
 			}
 			else
 			{
-				updateHealth(player, player.getHealth()-event.getDamage());
+				updateHealth(player, ((Damageable)player).getHealth()-event.getDamage());
 			}
 		}
 	}
@@ -79,13 +80,13 @@ public class ScoreboardListener implements Listener
 		{
 			Player player = (Player) event.getEntity();
 			
-			if(player.getHealth()-event.getDamage()<0)
+			if(((Damageable)player).getHealth()-event.getDamage()<0)
 			{
 				updateHealth(player, 0);
 			}
 			else
 			{
-				updateHealth(player, player.getHealth()-event.getDamage());
+				updateHealth(player, ((Damageable)player).getHealth()-event.getDamage());
 			}
 		}
 	}
@@ -100,13 +101,13 @@ public class ScoreboardListener implements Listener
 		{
 			Player player = (Player) event.getEntity();
 			
-			if(player.getHealth()-event.getDamage()<0)
+			if(((Damageable)player).getHealth()-event.getDamage()<0)
 			{
 				updateHealth(player, 0);
 			}
 			else
 			{
-				updateHealth(player, player.getHealth()-event.getDamage());
+				updateHealth(player, ((Damageable)player).getHealth()-event.getDamage());
 			}
 		}
 	}
@@ -116,7 +117,7 @@ public class ScoreboardListener implements Listener
 	{
 		Player player = event.getPlayer();
 		
-		updateHealth(player, player.getHealth());
+		updateHealth(player, ((Damageable)player).getMaxHealth());
 	}
 	
 	@EventHandler(priority = EventPriority.LOW)
@@ -140,7 +141,7 @@ public class ScoreboardListener implements Listener
 				Player p = Bukkit.getPlayer(player.getName());
 				if(p!=null)
 				{
-				updateHealth(p, p.getHealth());
+				updateHealth(p, ((Damageable)p).getHealth());
 				updateMana(p, SmudgeEssentials.heroes.getCharacterManager().getHero(p).getMana());
 				}
 			}
@@ -188,7 +189,7 @@ public class ScoreboardListener implements Listener
 				Player p = Bukkit.getPlayer(player.getName());
 				if(p!=null)
 				{
-				updateHealth(p, p.getHealth());
+				updateHealth(p, ((Damageable)p).getHealth());
 				updateMana(p, SmudgeEssentials.heroes.getCharacterManager().getHero(p).getMana());
 				}
 			}
@@ -254,7 +255,7 @@ public class ScoreboardListener implements Listener
 		}
 	}
 	
-	public void updateHealth(Player player, int health)
+	public void updateHealth(Player player, double health)
 	{
 		if(ScoreboardBars.hasScoreboard(player))
 		{
@@ -262,7 +263,7 @@ public class ScoreboardListener implements Listener
 			
 			Objective stats = sb.getObjective("stats");
 			
-			stats.getScore(Bukkit.getOfflinePlayer(ChatColor.GREEN + "Health")).setScore(health);
+			stats.getScore(Bukkit.getOfflinePlayer(ChatColor.GREEN + "Health")).setScore((int)health);
 		}
 	}
 	

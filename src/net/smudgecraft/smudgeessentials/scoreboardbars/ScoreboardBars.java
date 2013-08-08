@@ -12,6 +12,7 @@ import org.bukkit.scoreboard.Objective;
 import org.bukkit.scoreboard.Score;
 import org.bukkit.scoreboard.Scoreboard;
 import org.bukkit.scoreboard.ScoreboardManager;
+import org.bukkit.entity.Damageable;
 
 import com.herocraftonline.heroes.characters.Hero;
 
@@ -29,8 +30,8 @@ public class ScoreboardBars
 	
 	public static String createHealthBar(Player player)
 	{
-		double maxhealth = player.getMaxHealth();
-		double health = player.getHealth();
+		double maxhealth = ((Damageable)player).getMaxHealth();
+		double health = ((Damageable)player).getHealth();
 		
 		double amount = health/maxhealth;
 		
@@ -121,7 +122,7 @@ public class ScoreboardBars
 		mbar.setScore(hero.getMana());
 		
 		Score hbar = stats.getScore(Bukkit.getOfflinePlayer(ChatColor.GREEN + "Health"));
-		hbar.setScore(player.getHealth());
+		hbar.setScore((int)((Damageable)player).getHealth());
 		
 		Score primaryclass = stats.getScore(Bukkit.getOfflinePlayer(ChatColor.AQUA + hero.getHeroClass().getName()));
 		primaryclass.setScore(hero.getLevel(hero.getHeroClass()));
@@ -131,9 +132,7 @@ public class ScoreboardBars
 		Score profession = stats.getScore(Bukkit.getOfflinePlayer(ChatColor.AQUA + hero.getSecondClass().getName()));
 		profession.setScore(hero.getLevel(hero.getSecondClass()));
 		}
-		
-		stats.getScore(Bukkit.getOfflinePlayer(ChatColor.GOLD + "(Stats Beta)")).setScore(0);
-		
+				
 		player.setScoreboard(sb);
 		
 		sbplayers.put(player, sb);

@@ -33,7 +33,7 @@ import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import com.herocraftonline.heroes.Heroes;
-import com.massivecraft.factions.P;
+import com.massivecraft.factions.Factions;
 
 import de.bananaco.bpermissions.imp.Permissions;
 
@@ -41,7 +41,7 @@ public class SmudgeEssentials extends JavaPlugin
 {
 	public static SmudgeEssentials plugin;
 	public static Heroes heroes;
-	public static P factions;
+	public static Factions factions;
 	public static Permissions bperms;
 	
 	@Override
@@ -116,7 +116,7 @@ public class SmudgeEssentials extends JavaPlugin
 		
 		heroes = (Heroes) plugin.getServer().getPluginManager().getPlugin("Heroes");
 		
-		factions = (P) plugin.getServer().getPluginManager().getPlugin("Factions");
+		factions = (Factions) plugin.getServer().getPluginManager().getPlugin("Factions");
 		
 		bperms = (Permissions) plugin.getServer().getPluginManager().getPlugin("bPermissions");
 		

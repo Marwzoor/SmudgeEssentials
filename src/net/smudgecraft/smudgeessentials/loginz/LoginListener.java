@@ -6,10 +6,10 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.TimeZone;
 
-import net.minecraft.server.EntityPlayer;
-import net.minecraft.server.Packet250CustomPayload;
+import net.minecraft.server.v1_6_R2.EntityPlayer;
+import net.minecraft.server.v1_6_R2.Packet250CustomPayload;
 import net.smudgecraft.smudgeessentials.SmudgeEssentials;
-import org.bukkit.craftbukkit.entity.CraftPlayer;
+import org.bukkit.craftbukkit.v1_6_R2.entity.CraftPlayer;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;

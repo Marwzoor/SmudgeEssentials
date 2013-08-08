@@ -7,8 +7,9 @@ import org.bukkit.event.Listener;
 
 import com.herocraftonline.heroes.api.events.SkillUseEvent;
 import com.herocraftonline.heroes.characters.skill.Skill;
-import com.massivecraft.factions.Board;
-import com.massivecraft.factions.FLocation;
+import com.massivecraft.factions.FFlag;
+import com.massivecraft.factions.entity.BoardColls;
+import com.massivecraft.mcore.ps.PS;
 
 public class SkillsListener implements Listener
 {
@@ -20,11 +21,11 @@ public class SkillsListener implements Listener
 		
 		if(!player.isOp() && skill!=null && player!=null)
 		{
-			if(Board.getFactionAt(new FLocation(player.getLocation())).isSafeZone())
+			if(BoardColls.get().getFactionAt(PS.valueOf(player.getLocation())).getFlag(FFlag.PVP)==false)
 			{
 				if(!isSkillAllowed(skill))
 				{
-					player.sendMessage(ChatColor.RED + "You can't use skills in safezone!");
+					player.sendMessage(ChatColor.GRAY + "[" + ChatColor.DARK_GREEN + "Skill" + ChatColor.GRAY + "]" + ChatColor.RED + "You can't use that skill here!");
 					event.setCancelled(true);
 				}
 			}
