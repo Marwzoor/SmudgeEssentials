@@ -1,7 +1,5 @@
 package net.smudgecraft.smudgeessentials.adminchat;
 
-import java.util.Set;
-
 import net.smudgecraft.smudgeessentials.SmudgeEssentials;
 
 import org.bukkit.ChatColor;
@@ -24,20 +22,14 @@ public class ChatListenerAdmin implements Listener
 	      return;
 	    }
 
-	    String msg = event.getMessage();
-	    Set<Player> things = event.getRecipients();
 	    for (Player p : SmudgeEssentials.plugin.getServer().getOnlinePlayers())
 	    {
-	      if (!p.hasPermission("adminchat.see"))
+	      if (p.hasPermission("adminchat.see"))
 	      {
-	        things.remove(p);
+	    	  p.sendMessage(ChatColor.DARK_RED + "" + ChatColor.BOLD + "[" + ChatColor.RESET + ChatColor.DARK_GRAY + "StaffChat" + ChatColor.DARK_RED + ChatColor.BOLD + "] " + ChatColor.RED + player.getName() + ChatColor.WHITE + " : " + event.getMessage());
 	      }
-	      else if (!things.contains(p)) {
-	        things.add(p);
-	      }
-
-	      event.setFormat("%2$s");
-	      event.setMessage("<" + ChatColor.RED + "STAFFCHAT " + ChatColor.WHITE + player.getName() + "> " + msg);
+	      
+	      event.setCancelled(true);
 	    }
 	  }
 }
